@@ -48,7 +48,7 @@ Assistant: DeepSeek is an AI model designed for generating intelligent responses
 
 ## Configuration  
 - Modify the `model` parameter (`deepseek-chat` or `deepseek-reasoner`) to change the response behavior.  
-- Adjust `temperature`, please refer to [the DeepSeek public docs](https://api-docs.deepseek.com/quick_start/parameter_settings).  
+- For `temperature` adjustments, refer to [the DeepSeek public docs](https://api-docs.deepseek.com/quick_start/parameter_settings).  
 
 ## Note  
 - It takes 30 to 60 seconds to reply to a message.
