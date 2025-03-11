@@ -18,7 +18,7 @@ Ensure you have the following installed:
 
 ## Setup  
 1. **Set API Key**  
-   We can finally top up the DeepSeek API.
+   We can finally top up the DeepSeek API.  
    Export your DeepSeek API key as an environment variable:  
    ```bash
    export DEEPSEEK_API_KEY="your_api_key_here"
@@ -50,6 +50,6 @@ Assistant: DeepSeek is an AI model designed for generating intelligent responses
 
 ## Note  
 - It takes 30 to 60 seconds to reply to a message.
-
+-  Compared to the OpenAI API, the DeepSeek API costs one-tenth as much.
 ## License  
 MIT
