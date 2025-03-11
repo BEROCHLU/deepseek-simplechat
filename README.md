@@ -8,6 +8,7 @@ This script is a simple chatbot that interacts with users using the DeepSeek API
 - Uses OpenAI's DeepSeek API for generating responses.  
 - Maintains conversation history for context-aware replies.  
 - Displays responses in a visually appealing format using `rich`.  
+- Ollama or Hugging Face are not required.
 
 ## Requirements  
 Ensure you have the following installed:  
