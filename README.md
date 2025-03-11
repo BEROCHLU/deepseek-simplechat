@@ -1,13 +1,13 @@
-# Chatbot with DeepSeek  
+# A terminal chatbot using the DeepSeek API.  
 
 ## Overview  
 According to public document of DeepSeep API, the DeepSeek API uses an API format compatible with OpenAI.  
 This script is a simple chatbot that interacts with users using the DeepSeek API. It maintains a conversation history and displays responses in a formatted manner using the `rich` library.  
 
 ## Features  
-- Uses OpenAI's DeepSeek API for generating responses.  
+- Uses DeepSeek API for generating responses.  
 - Maintains conversation history for context-aware replies.  
-- Displays responses in a visually appealing format using `rich`.  
+- Displays responses in a visually appealing format using `rich` library.  
 - Ollama or Hugging Face are not required.
 
 ## Requirements  
