@@ -1,7 +1,6 @@
 # A terminal chatbot using the DeepSeek API.  
 
 ## Overview  
-According to public document of DeepSeep API, the DeepSeek API uses an API format compatible with OpenAI.  
 This script is a simple chatbot that interacts with users through a terminal using the DeepSeek API. It maintains a conversation history and displays responses in a formatted manner using the `rich` library.  
 
 ## Features  
@@ -17,6 +16,7 @@ Ensure you have the following installed:
   ```bash
   pip install openai
   ```  
+  According to public document of DeepSeep API, the DeepSeek API uses an API format compatible with OpenAI.  
 
 ## Setup  
 1. **Set API Key**  
@@ -39,11 +39,11 @@ Ensure you have the following installed:
 
 ## Example Interaction  
 ```plaintext
-User: Hello!
-Assistant: Hi! How can I assist you today?
+User: How are you?
+Assistant:
+I'm just a program, so I don't have feelings, but I'm here and ready to help you! How can I assist you today? 😊
 
-User: What is DeepSeek?
-Assistant: DeepSeek is an AI model designed for generating intelligent responses...
+User:
 ```
 
 ## Configuration  
