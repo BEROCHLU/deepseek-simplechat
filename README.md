@@ -39,9 +39,9 @@ Ensure you have the following installed:
 
 ## Example Interaction  
 ```plaintext
-User: How are you?
+User: What is DeepSeek?
 Assistant:
-I'm just a program, so I don't have feelings, but I'm here and ready to help you! How can I assist you today? 😊
+DeepSeek Artificial Intelligence Co., Ltd. (referred to as "DeepSeek" or "深度求索") , founded in 2023, is a Chinese company dedicated to making AGI a reality.
 
 User:
 ```
