@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import os
+from datetime import datetime
 from openai import OpenAI
 from rich.console import Console
 from rich.markdown import Markdown
@@ -20,7 +21,7 @@ api_params = {
     "model": "deepseek-reasoner",  # deepseek-chat | deepseek-reasoner
     "messages": conversation,
     "temperature": 0.7,  # openAIの推論モデルと違い、deepseek-reasonerは1.0にする必要がない
-    "reasoning_effort": "low",  # low, medium, high, for reasoner parameter
+    "reasoning_effort": "high",  # low, medium, high, for reasoner parameter
     "max_completion_tokens": 99999,  # max_tokens(Deprecated)、出力トークンのみの制限
 }
 
@@ -51,3 +52,20 @@ while True:
     except Exception as e:
         console.print(f"[bold red]Error occurred: {e}[/bold red]\n")
         break
+
+# ここで会話履歴をテキストファイルに保存
+save_dir = "./history"  # 保存先ディレクトリを指定し、存在しない場合は作成
+os.makedirs(save_dir, exist_ok=True)
+
+# タイムスタンプ取得（例: 20231020_153045）
+timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+history_file = os.path.join(save_dir, f"conversation_{timestamp}.md")
+
+try:
+    with open(history_file, "w", encoding="utf-8") as f:
+        for msg in conversation:
+            # role と content を分かりやすい形式で保存
+            f.write(f'{msg["role"].capitalize()}: {msg["content"]}\n\n')
+    console.print(f"[bold blue]Conversation history saved to {history_file}[/bold blue]")
+except Exception as e:
+    console.print(f"[bold red]Failed to save conversation history: {e}[/bold red]")
