@@ -5,9 +5,12 @@ from openai import OpenAI
 from rich.console import Console
 from rich.markdown import Markdown
 
-API_KEY = os.environ.get("DEEPSEEK_API_KEY")  # 環境変数に設定したAPIキーを取得
+API_KEY = os.environ.get("OPENAI_API_KEY")  # 環境変数に設定したAPIキーを取得
+MODEL = "o3-mini-2025-01-31"  # o3-mini-2025-01-31 | gpt-4o-mini-2024-07-18
+TEMPERATURE = 0.7
+REASONING_EFFORT = "medium"
 
-client = OpenAI(api_key=API_KEY, base_url="https://api.deepseek.com")
+client = OpenAI(api_key=API_KEY)
 
 console = Console()
 
@@ -15,14 +18,6 @@ console = Console()
 conversation = [
     {"role": "system", "content": "You are a helpful assistant"},
 ]
-
-params = {
-    "model": "deepseek-chat",  # deepseek-chat | deepseek-reasoner
-    "messages": conversation,
-    "temperature": 0.7,  # openAIの推論モデルと違い、deepseek-reasonerは明示的に1.0で固定する必要がない
-    "reasoning_effort": "high",  # low, medium, or high
-    # max_completion_tokens=6080,  # max_tokensと違い出力トークンのみの制限。8000を超えると重くなる
-}
 
 while True:
     # ユーザーからの入力を取得
@@ -33,7 +28,19 @@ while True:
     # ユーザーのメッセージを会話履歴に追加
     conversation.append({"role": "user", "content": user_input})
 
-    response = client.chat.completions.create(**params)
+    api_params = {
+        "model": MODEL,
+        "messages": conversation,
+        "temperature": TEMPERATURE,
+        # max_completion_tokens=6080,  # max_tokensと違い出力トークンのみの制限。8000を超えると重くなる
+    }
+
+    # 推論モデルのみ設定
+    if MODEL == "o3-mini-2025-01-31":
+        api_params["temperature"] = 1.0
+        api_params["reasoning_effort"] = REASONING_EFFORT
+
+    response = client.chat.completions.create(**api_params)
 
     # API より応答を取得
     assistant_reply = response.choices[0].message.content
