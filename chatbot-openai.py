@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import os
+import re
 from openai import OpenAI
 from rich.console import Console
 from rich.markdown import Markdown
@@ -23,13 +24,14 @@ api_params = {
     "model": MODEL,
     "messages": conversation,
     "temperature": TEMPERATURE,
-    "max_completion_tokens": 99999,  # max_tokens(Deprecated)、出力トークンのみの制限
+    "max_completion_tokens": 16383,  # max_tokens(Deprecated)、出力トークンのみの制限
 }
 
 # 推論モデルのみ設定
-if MODEL == "o3-mini-2025-01-31":
+if re.match(r"^o[1-9]-", MODEL):
     api_params["temperature"] = 1.0
     api_params["reasoning_effort"] = REASONING_EFFORT
+    api_params["max_completion_tokens"] = 99999
 
 while True:
     # ユーザーからの入力を取得
