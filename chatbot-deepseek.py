@@ -33,15 +33,21 @@ while True:
     # ユーザーのメッセージを会話履歴に追加
     conversation.append({"role": "user", "content": user_input})
 
-    response = client.chat.completions.create(**api_params)
+    # 時々、タイムアウトが起きるのでエラーハンドリングを追加
+    try:
+        response = client.chat.completions.create(**api_params)
 
-    # API より応答を取得
-    assistant_reply = response.choices[0].message.content
+        # API より応答を取得
+        assistant_reply = response.choices[0].message.content
 
-    # rich を使って Markdown としてterminalに描画
-    console.print("[bold green]Assistant:[/bold green]")
-    console.print(Markdown(assistant_reply))
-    console.print("\n")  # 改行で区切り
+        # rich を使って Markdown としてterminalに描画
+        console.print("[bold green]Assistant:[/bold green]")
+        console.print(Markdown(assistant_reply))
+        console.print("\n")  # 改行で区切り
 
-    # AI応答を会話履歴に追加
-    conversation.append({"role": "assistant", "content": assistant_reply})
+        # AI応答を会話履歴に追加
+        conversation.append({"role": "assistant", "content": assistant_reply})
+
+    except Exception as e:
+        console.print(f"[bold red]Error occurred: {e}[/bold red]\n")
+        break
