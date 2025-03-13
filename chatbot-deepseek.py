@@ -16,11 +16,11 @@ conversation = [
     {"role": "system", "content": "You are a helpful assistant"},
 ]
 
-params = {
+api_params = {
     "model": "deepseek-reasoner",  # deepseek-chat | deepseek-reasoner
     "messages": conversation,
     "temperature": 0.7,  # openAIの推論モデルと違い、deepseek-reasonerは1.0にする必要がない
-    "reasoning_effort": "high",  # low, medium, high, for reasoner parameter
+    "reasoning_effort": "low",  # low, medium, high, for reasoner parameter
     "max_completion_tokens": 99999,  # max_tokens(Deprecated)、出力トークンのみの制限
 }
 
@@ -33,7 +33,7 @@ while True:
     # ユーザーのメッセージを会話履歴に追加
     conversation.append({"role": "user", "content": user_input})
 
-    response = client.chat.completions.create(**params)
+    response = client.chat.completions.create(**api_params)
 
     # API より応答を取得
     assistant_reply = response.choices[0].message.content

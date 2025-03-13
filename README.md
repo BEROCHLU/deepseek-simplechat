@@ -29,7 +29,7 @@ Ensure you have the following installed:
 2. **Run the Script**  
    Execute the script using:  
    ```bash
-   python chatbot-rich.py
+   python chatbot-deepseek.py
    ```  
 
 ## Usage  
@@ -53,5 +53,6 @@ User:
 ## Note  
 -  Replying to a message takes at least 30 seconds.
 -  Compared to the OpenAI API, the DeepSeek API costs one-tenth as much.
+
 ## License  
 MIT
