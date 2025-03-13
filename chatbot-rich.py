@@ -17,11 +17,11 @@ conversation = [
 ]
 
 params = {
-    "model": "deepseek-chat",  # deepseek-chat | deepseek-reasoner
+    "model": "deepseek-reasoner",  # deepseek-chat | deepseek-reasoner
     "messages": conversation,
-    "temperature": 0.7,  # openAIの推論モデルと違い、deepseek-reasonerは明示的に1.0で固定する必要がない
-    "reasoning_effort": "high",  # low, medium, or high
-    # max_completion_tokens=6080,  # max_tokensと違い出力トークンのみの制限。8000を超えると重くなる
+    "temperature": 0.7,  # openAIの推論モデルと違い、deepseek-reasonerは1.0にする必要がない
+    "reasoning_effort": "high",  # low, medium, high, for reasoner parameter
+    "max_completion_tokens": 99999,  # max_tokens(Deprecated)、出力トークンのみの制限
 }
 
 while True:
@@ -43,5 +43,5 @@ while True:
     console.print(Markdown(assistant_reply))
     console.print("\n")  # 改行で区切り
 
-    # 会話履歴に追加
+    # AI応答を会話履歴に追加
     conversation.append({"role": "assistant", "content": assistant_reply})

@@ -51,7 +51,7 @@ User:
 - For `temperature` adjustments, refer to [the DeepSeek public docs](https://api-docs.deepseek.com/quick_start/parameter_settings).  
 
 ## Note  
-- It takes 30 to 60 seconds to reply to a message.
+-  Replying to a message takes at least 30 seconds.
 -  Compared to the OpenAI API, the DeepSeek API costs one-tenth as much.
 ## License  
 MIT

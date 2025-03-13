@@ -19,6 +19,18 @@ conversation = [
     {"role": "system", "content": "You are a helpful assistant"},
 ]
 
+api_params = {
+    "model": MODEL,
+    "messages": conversation,
+    "temperature": TEMPERATURE,
+    "max_completion_tokens": 99999,  # max_tokens(Deprecated)、出力トークンのみの制限
+}
+
+# 推論モデルのみ設定
+if MODEL == "o3-mini-2025-01-31":
+    api_params["temperature"] = 1.0
+    api_params["reasoning_effort"] = REASONING_EFFORT
+
 while True:
     # ユーザーからの入力を取得
     user_input = input("User: ").strip()
@@ -27,18 +39,6 @@ while True:
 
     # ユーザーのメッセージを会話履歴に追加
     conversation.append({"role": "user", "content": user_input})
-
-    api_params = {
-        "model": MODEL,
-        "messages": conversation,
-        "temperature": TEMPERATURE,
-        # max_completion_tokens=6080,  # max_tokensと違い出力トークンのみの制限。8000を超えると重くなる
-    }
-
-    # 推論モデルのみ設定
-    if MODEL == "o3-mini-2025-01-31":
-        api_params["temperature"] = 1.0
-        api_params["reasoning_effort"] = REASONING_EFFORT
 
     response = client.chat.completions.create(**api_params)
 
@@ -50,5 +50,5 @@ while True:
     console.print(Markdown(assistant_reply))
     console.print("\n")  # 改行で区切り
 
-    # 会話履歴に追加
+    # AI応答を会話履歴に追加
     conversation.append({"role": "assistant", "content": assistant_reply})
