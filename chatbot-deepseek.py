@@ -18,11 +18,11 @@ conversation = [
 ]
 
 api_params = {
-    "model": "deepseek-reasoner",  # deepseek-chat | deepseek-reasoner
+    "model": "deepseek-chat",  # deepseek-chat | deepseek-reasoner
     "messages": conversation,
-    "temperature": 0.7,  # openAIの推論モデルと違い、deepseek-reasonerは1.0にする必要がない
-    "reasoning_effort": "high",  # low, medium, high, for reasoner parameter
-    "max_completion_tokens": 99999,  # max_tokens(Deprecated)、出力トークンのみの制限
+    "temperature": 1.3,  # openAIの推論モデルと違い、deepseek-reasonerは1.0にする必要がない
+    "max_tokens": 8192,  # openAIのmax_completion_tokensに近いのか？
+    "reasoning_effort": "medium",  # low, medium, high, for reasoner parameter
 }
 
 while True:
@@ -59,7 +59,7 @@ os.makedirs(save_dir, exist_ok=True)
 
 # タイムスタンプ取得（例: 20231020_153045）
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-history_file = os.path.join(save_dir, f"conversation_{timestamp}.md")
+history_file = os.path.join(save_dir, f"deepseek_{timestamp}.md")
 
 try:
     with open(history_file, "w", encoding="utf-8") as f:
