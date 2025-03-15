@@ -18,11 +18,11 @@ conversation = [
 ]
 
 api_params = {
-    "model": "deepseek-chat",  # deepseek-chat | deepseek-reasoner
+    "model": "deepseek-reasoner",  # deepseek-chat | deepseek-reasoner
     "messages": conversation,
-    "temperature": 1.3,  # openAIの推論モデルと違い、deepseek-reasonerは1.0にする必要がない
+    "temperature": 1.3,  # Not supported by deepseek-reasoner; probably fixed to 1.0.
     "max_tokens": 8192,  # openAIのmax_completion_tokensに近いのか？
-    "reasoning_effort": "medium",  # low, medium, high, for reasoner parameter
+    # "reasoning_effort": "medium",  # The parameter for deepseek-reasoner will be available soon. low | medium | high
 }
 
 while True:
