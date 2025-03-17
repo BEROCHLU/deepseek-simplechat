@@ -59,7 +59,7 @@ os.makedirs(save_dir, exist_ok=True)
 
 # タイムスタンプ取得（例: 20231020_153045）
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-history_file = os.path.join(save_dir, f"deepseek_{timestamp}.md")
+history_file = os.path.join(save_dir, f"{api_params["model"]}_{timestamp}.md")
 
 try:
     with open(history_file, "w", encoding="utf-8") as f:

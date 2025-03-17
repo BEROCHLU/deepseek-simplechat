@@ -7,7 +7,7 @@ from rich.console import Console
 from rich.markdown import Markdown
 
 API_KEY = os.environ.get("OPENAI_API_KEY")  # 環境変数に設定したAPIキーを取得
-MODEL = "o3-mini-2025-01-31"  # o3-mini-2025-01-31 | gpt-4o-mini-2024-07-18
+MODEL = "gpt-4o-mini"  # o3-mini-2025-01-31 | gpt-4o-mini-2024-07-18
 TEMPERATURE = 0.7
 REASONING_EFFORT = "medium"
 
@@ -24,7 +24,7 @@ api_params = {
     "model": MODEL,
     "messages": conversation,
     "temperature": TEMPERATURE,
-    "max_completion_tokens": 16383,  # max_tokens(Deprecated)、出力トークンのみの制限
+    "max_completion_tokens": 16384,  # max_tokens(Deprecated)、出力トークンのみの制限
 }
 
 # 推論モデルのみ設定
