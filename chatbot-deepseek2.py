@@ -29,6 +29,7 @@ while True:
     if not user_input:
         break
 
+    # ::を質問とファイルパスの区切りとする
     args = user_input.split("::")
 
     # 最初の引数を質問として扱う
@@ -46,9 +47,9 @@ while True:
             console.print(f"[bold red]{e}[/bold red]")
             break
 
-    # ファイルの内容があれば、質問に加えて会話履歴に追加
+    # AIの応答を会話履歴に追加
     if file_contents:
-        conversation.append({"role": "user", "content": f"{user_question} {file_contents}"})
+        conversation.append({"role": "user", "content": f"{user_question} :: {file_contents}"})
     else:
         conversation.append({"role": "user", "content": user_question})
 
