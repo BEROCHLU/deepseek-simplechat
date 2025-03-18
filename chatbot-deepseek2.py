@@ -16,7 +16,7 @@ conversation = [
 ]
 
 api_params = {
-    "model": "deepseek-chat",  # deepseek-chat や deepseek-reasoner など
+    "model": "deepseek-reasoner",  # deepseek-chat | deepseek-reasoner
     "messages": conversation,
     "temperature": 1.3,
     "max_tokens": 8192,
