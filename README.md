@@ -12,7 +12,7 @@ This script is a simple chatbot that interacts with users through a terminal usi
 
 ## Requirements  
 Ensure you have the following installed:  
-- Python 3.11+  
+- Python 3.10+  
 - Required Python packages:  
   ```bash
   pip install openai
@@ -41,7 +41,7 @@ Ensure you have the following installed:
    
     User: Explain this code::/path/to/example.py
    
- Exit: Press Enter with empty input
+ Exit: Press Enter with empty input and then conversation history was saved history folder.
 
 ## Example Interaction  
 ```plaintext
