@@ -1,4 +1,4 @@
-# A terminal chatbot using the DeepSeek API.  
+# A terminal chatbot using the DeepSeek API  
 
 ## Overview  
 This script is a simple chatbot that interacts with users through a terminal using the DeepSeek API. It maintains a conversation history and displays responses in a formatted manner using the `rich` library.  
@@ -6,8 +6,9 @@ This script is a simple chatbot that interacts with users through a terminal usi
 ## Features  
 - Uses DeepSeek API for generating responses.  
 - Maintains conversation history for context-aware replies.  
+- Supports file content input using `::` syntax.  
 - Displays responses in a visually appealing format using `rich` library.  
-- Ollama or Hugging Face are not required.
+- Ollama or Hugging Face are not required.  
 
 ## Requirements  
 Ensure you have the following installed:  
@@ -20,7 +21,6 @@ Ensure you have the following installed:
 
 ## Setup  
 1. **Set API Key**  
-   We can finally top up the DeepSeek API.  
    Export your DeepSeek API key as an environment variable:  
    ```bash
    export DEEPSEEK_API_KEY="your_api_key_here"
@@ -33,9 +33,15 @@ Ensure you have the following installed:
    ```  
 
 ## Usage  
-- Type your message and press Enter to interact with the chatbot.  
-- The chatbot will respond based on the conversation history.  
-- Press Enter without typing anything to exit.  
+ Basic chat:
+
+    User: Your question
+   
+ File analysis mode:
+   
+    User: Explain this code::/path/to/example.py
+   
+ Exit: Press Enter with empty input
 
 ## Example Interaction  
 ```plaintext
@@ -43,16 +49,24 @@ User: What is DeepSeek?
 Assistant:
 DeepSeek Artificial Intelligence Co., Ltd. (referred to as "DeepSeek" or "深度求索") , founded in 2023, is a Chinese company dedicated to making AGI a reality.
 
-User:
+User: Help fix this error::error_log.txt
+Assistant:
+### Error Analysis
+The contents of `error_log.txt` indicate the following issues...
+
+User: Suggest optimizations::history/main.py
+Assistant:
+# Optimized code example here
 ```
 
 ## Configuration  
-- Modify the `model` parameter (`deepseek-chat` or `deepseek-reasoner`) to change the response behavior.  
-- For `temperature` adjustments, refer to [the DeepSeek public docs](https://api-docs.deepseek.com/quick_start/parameter_settings).  
+- **Model**: Choose between `deepseek-chat` or `deepseek-reasoner`.  
+- **Temperature**: Controls randomness. Refer to [official docs](https://api-docs.deepseek.com/quick_start/parameter_settings) for valid ranges.  
+- **reasoning_effort**: Apparently, this parameter will be available soon.  
 
 ## Note  
--  Replying to a message takes at least 30 seconds.
--  Compared to the OpenAI API, the DeepSeek API costs one-tenth as much.
+- Replying to a message takes at least 30 seconds.  
+- As a reasoner model, the DeepSeek API costs one-hundredth as much as the OpenAI API.  
 
 ## License  
 MIT

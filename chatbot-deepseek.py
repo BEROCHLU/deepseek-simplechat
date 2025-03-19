@@ -27,7 +27,7 @@ while True:
     # ユーザーからの入力を取得
     user_input = input("User: ")
     if not user_input:
-        sys.exit()
+        break
 
     # ::を質問とファイルパスの区切りとする
     args = user_input.split("::")
@@ -45,7 +45,7 @@ while True:
             console.print(f"[bold blue]Completed loading the file: '{file_path}'[/bold blue]")
         except Exception as e:
             console.print(f"[bold red]{e}[/bold red]")
-            sys.exit()
+            break
 
     # AIの応答を会話履歴に追加
     if file_contents:
@@ -67,6 +67,9 @@ while True:
     except Exception as e:
         console.print(f"[bold red]Error occurred: {e}[/bold red]\n")
         break
+
+if len(conversation) <= 1:
+    sys.exit()
 
 # 会話履歴と（オプションで）読み込んだファイルの内容をファイルへ保存
 save_dir = "./history"
