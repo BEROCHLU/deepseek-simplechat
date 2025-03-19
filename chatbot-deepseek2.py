@@ -6,8 +6,7 @@ from openai import OpenAI
 from rich.console import Console
 from rich.markdown import Markdown
 
-# 環境変数からAPIキーを取得
-API_KEY = os.environ.get("DEEPSEEK_API_KEY")
+API_KEY = os.environ.get("DEEPSEEK_API_KEY")  # 環境変数からAPIキーを取得
 client = OpenAI(api_key=API_KEY, base_url="https://api.deepseek.com")
 console = Console()
 
