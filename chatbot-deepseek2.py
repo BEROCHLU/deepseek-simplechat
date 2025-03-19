@@ -36,7 +36,7 @@ while True:
     user_question = args[0].strip()
     file_contents = ""
 
-    # 2つ目の引数があればファイルパスとして処理
+    # 2つ以上の引数があればファイルパスとして処理
     if len(args) >= 2:
         file_path = args[1].strip()
         try:
