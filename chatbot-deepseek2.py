@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import os
+import sys
 from datetime import datetime
 from openai import OpenAI
 from rich.console import Console
@@ -27,7 +28,7 @@ while True:
     # ユーザーからの入力を取得
     user_input = input("User: ")
     if not user_input:
-        break
+        sys.exit()
 
     # ::を質問とファイルパスの区切りとする
     args = user_input.split("::")
@@ -45,7 +46,7 @@ while True:
             console.print(f"[bold blue]Completed loading the file: '{file_path}'[/bold blue]")
         except Exception as e:
             console.print(f"[bold red]{e}[/bold red]")
-            break
+            sys.exit()
 
     # AIの応答を会話履歴に追加
     if file_contents:
