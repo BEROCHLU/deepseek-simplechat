@@ -60,8 +60,9 @@ Assistant:
 ```
 
 ## Configuration  
-- **Model**: Choose between `deepseek-chat` or `deepseek-reasoner`.  
-- **Temperature**: Controls randomness. Refer to [official docs](https://api-docs.deepseek.com/quick_start/parameter_settings) for valid ranges.  
+- **model**: Choose between `deepseek-chat` or `deepseek-reasoner`.  
+- **temperature**: Controls randomness. Refer to [official docs](https://api-docs.deepseek.com/quick_start/parameter_settings) for valid ranges.  
+- **max_tokens**: For both models, 8192 is the maximum for now.
 - **reasoning_effort**: Apparently, this parameter will be available soon.  
 
 ## Note  
