@@ -6,7 +6,7 @@ This script is a simple chatbot that interacts with users through a terminal usi
 ## Features  
 - Uses DeepSeek API for generating responses.  
 - Maintains conversation history for context-aware replies.  
-- Supports file content input using `::` syntax.  
+- Supports only text file content input using pipe`␣|␣` syntax.  
 - Displays responses in a visually appealing format using `rich` library.  
 - Ollama or Hugging Face are not required.  
 
@@ -37,9 +37,9 @@ Ensure you have the following installed:
 
     User: Your question
    
- File analysis mode:
+ File analysis mode: (Spaces around '|'.)
    
-    User: Explain this code::/path/to/example.py
+    User: Explain this code | /path/to/example.py
    
  Exit: Press Enter with empty input and then conversation history was saved history folder.
 
@@ -49,12 +49,12 @@ User: What is DeepSeek?
 Assistant:
 DeepSeek Artificial Intelligence Co., Ltd. (referred to as "DeepSeek" or "深度求索") , founded in 2023, is a Chinese company dedicated to making AGI a reality.
 
-User: Help fix this error::error_log.txt
+User: Help fix this error | err_log.txt
 Assistant:
 ### Error Analysis
-The contents of `error_log.txt` indicate the following issues...
+The contents of `err_log.txt` indicate the following issues...
 
-User: Suggest optimizations::history/main.py
+User: Suggest optimizations | history/main.py
 Assistant:
 # Optimized code example here
 ```
