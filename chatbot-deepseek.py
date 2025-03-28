@@ -16,7 +16,7 @@ conversation = [
 ]
 
 api_params = {
-    "model": "deepseek-reasoner",  # deepseek-chat | deepseek-reasoner
+    "model": "deepseek-chat",  # deepseek-chat | deepseek-reasoner
     "messages": conversation,
     "temperature": 1.3,
     "max_tokens": 8192,
@@ -55,12 +55,16 @@ while True:
 
     # API 呼び出し（タイムアウトや例外に備えエラーハンドリング）
     try:
-        response = client.chat.completions.create(**api_params)
-        # API からの応答を取得
-        assistant_reply = response.choices[0].message.content
+        response = client.chat.completions.create(**api_params, stream=True)
 
         console.print("[bold green]Assistant:[/bold green]")
-        console.print(Markdown(assistant_reply))
+
+        assistant_reply = ""
+        for chunk in response:
+            if chunk.choices[0].delta.content:
+                content = chunk.choices[0].delta.content
+                assistant_reply += content
+                console.print(content, end="", style="white")
         console.print("\n")
 
         conversation.append({"role": "assistant", "content": assistant_reply})
