@@ -18,7 +18,7 @@ conversation = [
 api_params = {
     "model": "deepseek-chat",  # deepseek-chat | deepseek-reasoner
     "messages": conversation,
-    "temperature": 1.3,
+    "temperature": 1.0,
     "max_tokens": 8192,
     # "reasoning_effort": "medium",
 }

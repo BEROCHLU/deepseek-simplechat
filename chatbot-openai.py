@@ -8,9 +8,9 @@ from rich.console import Console
 from rich.markdown import Markdown
 
 API_KEY = os.environ.get("OPENAI_API_KEY")  # 環境変数に設定したAPIキーを取得
-MODEL = "gpt-4.5-preview"  # gpt-4o-mini | o3-mini | gpt-4o | chatgpt-4o-latest | o1 | gpt-4.5-preview
+MODEL = "o3-mini"  # gpt-4o-mini | o3-mini | gpt-4o | chatgpt-4o-latest | o1 | gpt-4.5-preview
 TEMPERATURE = 1.0
-REASONING_EFFORT = "high"  # low | medium | high
+REASONING_EFFORT = "medium"  # low | medium | high
 
 client = OpenAI(api_key=API_KEY)
 
