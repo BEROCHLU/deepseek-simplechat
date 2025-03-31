@@ -1,2 +1,2 @@
 @echo off
-start pwsh -Command "Set-Location ..; python chatbot-openai.py"
+start "" "C:\Program Files\Git\bin\bash.exe" -c "cd ..; python chatbot-openai.py; exec bash"
