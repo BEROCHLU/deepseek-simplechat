@@ -59,7 +59,7 @@ while True:
                 console.print(f"[bold blue]Completed loading the file: '{file_path}'[/bold blue]")
             except Exception as e:
                 console.print(f"[bold red]Error loading file '{file_path}': {e}[/bold red]")
-                sys.exit(1)
+                break
 
     # AIの応答を会話履歴に追加
     if file_contents:
