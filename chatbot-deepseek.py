@@ -29,27 +29,30 @@ while True:
     if not user_input:
         break
 
-    # 質問とファイルパスの区切りを | とする(pipe)
+    # 質問とファイルパスを | で区切る
     args = user_input.split(" | ")
 
     # 最初の引数を質問として扱う
     user_question = args[0].strip()
     file_contents = ""
 
-    # 2つ目の引数があればファイルパスとして処理
+    # 2つ目以降の引数があればファイルパスとして処理（複数ファイル対応）
     if len(args) >= 2:
-        file_path = args[1].strip()
-        try:
-            with open(file_path, "r", encoding="utf-8") as file:
-                file_contents = file.read()
-            console.print(f"[bold blue]Completed loading the file: '{file_path}'[/bold blue]")
-        except Exception as e:
-            console.print(f"[bold red]{e}[/bold red]")
-            break
+        file_paths = args[1:]  # 2つ目以降の引数をすべてファイルパスとして扱う
+        for file_path in file_paths:
+            file_path = file_path.strip()
+            try:
+                with open(file_path, "r", encoding="utf-8") as file:
+                    file_contents += f"\n\n--- File: {file_path} ---\n\n"
+                    file_contents += file.read()
+                console.print(f"[bold blue]Completed loading the file: '{file_path}'[/bold blue]")
+            except Exception as e:
+                console.print(f"[bold red]Error loading file '{file_path}': {e}[/bold red]")
+                sys.exit(1)
 
     # AIの応答を会話履歴に追加
     if file_contents:
-        conversation.append({"role": "user", "content": f"{user_question} | {file_contents}"})
+        conversation.append({"role": "user", "content": f"{user_question}\n\n{file_contents}"})
     else:
         conversation.append({"role": "user", "content": user_question})
 

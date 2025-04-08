@@ -6,9 +6,7 @@ This script is a simple chatbot that interacts with users through a terminal usi
 ## Features  
 - Uses DeepSeek API for generating responses.  
 - Maintains conversation history for context-aware replies.  
-- Supports only text file content input using pipe`␣|␣` syntax.  
-- Displays responses in a visually appealing format using `rich` library.  
-- Ollama or Hugging Face are not required.  
+- Supports text files content input using pipe`␣|␣` syntax.  
 
 ## Requirements  
 Ensure you have the following installed:  
@@ -18,6 +16,9 @@ Ensure you have the following installed:
   pip install openai
   ```  
   According to public document of DeepSeep API, the DeepSeek API uses an API format compatible with OpenAI.  
+
+**Optional:**
+- [Windows Terminal](https://apps.microsoft.com/detail/windows-terminal/9N0DX20HK701) (For running the provided Windows batch script `wt-***.bat`)
 
 ## Setup  
 1. **Set API Key**  
@@ -37,11 +38,11 @@ Ensure you have the following installed:
 
     User: Your question
    
- File analysis mode: (Spaces around '|'.)
-   
-    User: Explain this code | /path/to/example.py
-   
- Exit: Press Enter with empty input and then conversation history was saved history folder.
+File analysis mode: (Use spaces around '|' and multiple files supported.)
+
+   User: Explain this code | /path/to/example.py | /path/to/another_file.py
+
+Exit: Press Enter with empty input and the conversation history will be saved in the history folder.
 
 ## Example Interaction  
 ```plaintext
@@ -56,7 +57,11 @@ The contents of `err_log.txt` indicate the following issues...
 
 User: Suggest optimizations | history/main.py
 Assistant:
-# Optimized code example here
+# Optimized code example here...
+
+User: Translate please | a.txt | history/b.txt | c.txt
+Assistant:
+# Translated text here...
 ```
 
 ## Configuration  
@@ -66,6 +71,7 @@ Assistant:
 - **reasoning_effort**: Apparently, this parameter will be available soon.  
 
 ## Note  
+- The DeepSeek API is more stable compared to the browser version and allows specifying a maximum token limit of up to 8K.
 - As a reasoner model, the DeepSeek API costs one-hundredth as much as the OpenAI API.  
 
 ## License  

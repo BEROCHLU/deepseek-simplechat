@@ -25,7 +25,7 @@ api_params = {
     "model": MODEL,
     "messages": conversation,
     "temperature": TEMPERATURE,
-    "max_completion_tokens": 16384,  # max_tokens(Deprecated)、出力トークンのみの制限
+    "max_completion_tokens": 16384,  # max_tokens(Deprecated)と違い、出力トークンのみの制限
 }
 
 # 推論モデルのみ設定
