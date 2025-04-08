@@ -66,7 +66,6 @@ Assistant:
 - **reasoning_effort**: Apparently, this parameter will be available soon.  
 
 ## Note  
-- Replying to a message takes at least 30 seconds.  
 - As a reasoner model, the DeepSeek API costs one-hundredth as much as the OpenAI API.  
 
 ## License  
