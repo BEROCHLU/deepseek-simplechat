@@ -18,7 +18,7 @@ Ensure you have the following installed:
   According to public document of DeepSeep API, the DeepSeek API uses an API format compatible with OpenAI.  
 
 **Optional:**
-- [Windows Terminal](https://apps.microsoft.com/detail/windows-terminal/9N0DX20HK701) (For running the provided Windows batch script `wt-***.bat`)
+- [Windows Terminal](https://apps.microsoft.com/detail/windows-terminal/9N0DX20HK701) (For running the provided Windows batch script `wt-deepseek.bat`)
 
 ## Setup  
 1. **Set API Key**  
@@ -34,15 +34,18 @@ Ensure you have the following installed:
    ```  
 
 ## Usage  
- Basic chat:
+Basic chat:
 
     User: Your question
-   
+
 File analysis mode: (Use spaces around '|' and multiple files supported.)
 
-   User: Explain this code | /path/to/example.py | /path/to/another_file.py
+    User: Explain this code | /path/to/example.py | /path/to/another_file.py
 
 Exit: Press Enter with empty input and the conversation history will be saved in the history folder.
+
+**Optional (Windows users):**  
+You can also use the provided batch script (`script/wt-deepseek.bat`) to launch the chatbot quickly via Windows Terminal.  
 
 ## Example Interaction  
 ```plaintext
