@@ -6,6 +6,7 @@ This script is a simple chatbot that interacts with users through a terminal usi
 ## Features  
 - Uses DeepSeek API for generating responses.  
 - Maintains conversation history for context-aware replies.  
+- Saves conversation history to the `./history` folder.  
 - Supports text files content input using pipe`␣|␣` syntax.  
 
 ## Requirements  
@@ -15,7 +16,7 @@ Ensure you have the following installed:
   ```bash
   pip install openai
   ```  
-  According to public document of DeepSeep API, the DeepSeek API uses an API format compatible with OpenAI.  
+  According to public documentation, the DeepSeek API is compatible with OpenAI.  
 
 Optional (recommended):
 - [Windows Terminal](https://apps.microsoft.com/detail/windows-terminal/9N0DX20HK701)  
@@ -34,7 +35,7 @@ Optional (recommended):
    python chatbot-deepseek.py
    ```  
    - Optional (Windows users):  
-   You can also use the provided batch script (`script/wt-deepseek.bat`) to launch the chatbot quickly via Windows Terminal.  
+   You may use the provided batch script (`script/wt-deepseek.bat`) to launch the chatbot quickly via Windows Terminal.  
 
 ## Usage  
 Basic chat:
@@ -45,7 +46,7 @@ File analysis mode: (Use spaces around '|' and multiple files supported.)
 
     User: Explain this code | /path/to/example.py | /path/to/another_file.py
 
-Exit: Press Enter with empty input and the conversation history will be saved in the history folder.
+Exit: Press Enter with empty input to save the conversation history to `./history` folder.
 
 ## Example Interaction  
 ```plaintext
