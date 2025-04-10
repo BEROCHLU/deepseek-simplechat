@@ -1,7 +1,7 @@
 # A terminal chatbot using the DeepSeek API  
 
 ## Overview  
-This script is a simple chatbot that interacts with users through a terminal using the DeepSeek API. It maintains a conversation history and displays responses in a formatted manner using the `rich` library.  
+This script is a simple chatbot that interacts with users through a terminal using the DeepSeek API. It maintains a conversation history ~~and displays responses in a formatted manner using the `rich` library~~.  
 
 ## Features  
 - Uses DeepSeek API for generating responses.  
@@ -29,12 +29,11 @@ Optional (recommended):
    ```  
 
 2. **Run the Script**  
-   Execute the script using:  
+   - Execute the script using:  
    ```bash
    python chatbot-deepseek.py
    ```  
-
-2. **Optional (Windows users):**  
+   - Optional (Windows users):  
    You can also use the provided batch script (`script/wt-deepseek.bat`) to launch the chatbot quickly via Windows Terminal.  
 
 ## Usage  
