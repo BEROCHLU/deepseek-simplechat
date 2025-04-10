@@ -1,7 +1,7 @@
 # A terminal chatbot using the DeepSeek API  
 
 ## Overview  
-This script is a simple chatbot that interacts with users through a terminal using the DeepSeek API. It maintains a conversation history ~~and displays responses in a formatted manner using the `rich` library~~.  
+This script is a simple chatbot that interacts with users through a terminal using the DeepSeek API. It maintains and saves conversation history.  
 
 ## Features  
 - Uses DeepSeek API for generating responses.  
